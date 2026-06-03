@@ -53,7 +53,7 @@
             z-index: 2;
         }
 
-        /* Bahagian Logo */
+        /* Bahagian Logo Baharu Menggunakan icon.png */
         .logo-area {
             display: flex;
             align-items: center;
@@ -61,31 +61,28 @@
             margin-bottom: 20px;
         }
 
-        .logo-placeholder {
-            background: linear-gradient(to right, #0072bc, #00aef0);
-            color: white;
-            padding: 8px 15px;
-            border-top-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            font-weight: 800;
-            font-style: italic;
-            font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0, 114, 188, 0.3);
+        .logo-image {
+            height: 45px; /* Ketinggian logo yang sepadan dengan tulisan */
+            width: auto;
+            object-fit: contain;
         }
 
         .logo-text {
             font-weight: 700;
             color: #0d2c54;
-            margin-left: 10px;
-            font-size: 1.2rem;
+            margin-left: 12px;
+            font-size: 1.3rem;
+            letter-spacing: -0.5px;
         }
 
-        /* Ikon Anak Panah Bergerak */
-        .arrow-icon {
-            font-size: 3.5rem;
-            color: #0072bc;
+        /* Ikon Anak Panah Bergerak (Bahagian Tengah) */
+        .arrow-icon-container {
             margin: 20px 0;
-            display: inline-block;
+        }
+
+        .arrow-icon {
+            width: 70px; /* Saiz ikon anak panah biru di tengah */
+            height: auto;
             animation: bounceRight 1s infinite alternate;
         }
 
@@ -208,6 +205,9 @@
                 padding: 14px 20px;
                 font-size: 0.9rem;
             }
+            .logo-area {
+                justify-content: center; /* Dipusatkan jika di telefon */
+            }
         }
     </style>
 </head>
@@ -215,11 +215,15 @@
 
     <div class="container">
         <div class="logo-area">
-            <div class="logo-placeholder">PNG</div>
+            <img src="icon.png" alt="PNG Calculator Logo" class="logo-image">
             <div class="logo-text">PNG Calculator</div>
         </div>
 
-        <div class="arrow-icon">➔</div>
+        <div class="arrow-icon-container">
+            <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M19 12L13 6M19 12L13 18" stroke="#0072bc" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </div>
 
         <h1>PNG Calculator Telah Berpindah<br>ke Domain Baru!</h1>
 
@@ -237,13 +241,13 @@
             </a>
 
             <p class="info-text">
-                Anda akan<br>
+                Sila kemas kini penanda buku (bookmark) anda. Anda akan<br>
                 dipindahkan secara automatik dalam masa <span id="countdown" class="countdown-number">10</span> saat...
             </p>
         </div>
 
         <footer>
-            PNG Calculator. <a href="#">Hubungi Kami</a>
+            © 2024 PNG Calculator. <a href="#">Hubungi Kami</a>
         </footer>
     </div>
 
@@ -258,7 +262,7 @@
 
             if (seconds <= 0) {
                 clearInterval(interval);
-                window.location.href = targetUrl; // Berpindah ke URL baharu automatik
+                window.location.href = targetUrl; // Berpindah ke URL baharu secara automatik
             }
         }, 1000);
     </script>
